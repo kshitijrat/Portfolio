@@ -38,7 +38,7 @@ const About = () => {
 
   return (
     <div
-      className="py-20 bg-gradient-to-b from-navy-700 to-indigo-900 text-white"
+      className="py-20 bg-gradient-to-b from-indigo-900 to-navy-700 text-white"
       id="about"
     >
       <motion.div

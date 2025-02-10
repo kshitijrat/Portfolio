@@ -6,6 +6,7 @@ import Services from './components/Services';
 import Education from './components/Education';
 import GetInTouch from './components/GetInTouch';
 import './App.css';
+import Projects from './components/Projects';
 function App() {
 
   return (
@@ -14,6 +15,7 @@ function App() {
       <Hero />
       <About />
       <Experience />
+      <Projects />
       <Skills />
       <Services />
       <Education />

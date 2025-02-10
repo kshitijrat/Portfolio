@@ -102,7 +102,7 @@ export default function Hero() {
               }}
             >
               {/* Falling letters */}
-              {Array.from("Kshitij Ratnawats").map((char, index) => (
+              {Array.from("Kshitij Ratnawat").map((char, index) => (
                 <motion.span
                   key={index}
                   className="inline-block"

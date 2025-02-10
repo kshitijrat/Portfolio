@@ -1,117 +1,128 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Linkedin, Github, Instagram } from 'lucide-react'; // Import icons
+import { Mail, Phone, MapPin, Linkedin, Github, Instagram, Code } from 'lucide-react'; // Added Code icon for coding profiles
 
 const GetInTouch = () => {
   return (
-    <div className="py-20 bg-navy-900" id="contact">
-      <div className="container mx-auto px-4">
+    <>
+    <div className="py-20 bg-gradient-to-b from-navy-800 to-navy-900" id="contact">
+      <div className="container mx-auto px-6 md:px-12">
+        {/* Main Heading */}
         <motion.h2
-          className="text-4xl font-bold text-center text-white mb-16"
+          className="text-4xl font-bold text-center text-white mb-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
-          Get In Touch
+          You can find me on
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            
-            <div className="space-y-6 justify-self-center p-4 mr-20">
-            <h3 className="text-2xl font-semibold text-white mb-2 mr-20">Contact Information</h3>
-              <div className="flex items-center gap-4">
+        {/* Subheading */}
+        <motion.h5
+          className="text-2xl font-normal text-center text-gray-400 mb-2"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          Reach out to me through any of the platforms below!
+        </motion.h5>
+
+        {/* Contact & Social Media Section */}
+        <div className="border-gray-700 text-center">
+          <div className="space-y-4 mt-6 text-center text-white">
+            <div className="flex justify-center gap-6">
+              {/* Email */}
+              <div className="flex items-center gap-2">
                 <Mail className="text-blue-400" size={24} />
-                <a
-                  href="mailto:kshitijratnawat@gmail.com"
-                  className="text-white hover:underline"
-                >
+                <a href="mailto:kshitijratnawat@gmail.com" className="hover:underline">
                   kshitijratnawat@gmail.com
                 </a>
               </div>
-              <div className="flex items-center gap-4">
+
+              {/* Phone */}
+              <div className="flex items-center gap-2">
                 <Phone className="text-blue-400" size={24} />
-                <a href="tel:+919755345095" className="text-white hover:underline">
+                <a href="tel:+919755345095" className="hover:underline">
                   +91-9755345095
                 </a>
               </div>
-              <div className="flex items-center gap-4">
+
+              {/* Location */}
+              <div className="flex items-center gap-2">
                 <MapPin className="text-blue-400" size={24} />
-                <p className="text-white">Indore, Madhya Pradesh, India</p>
-              </div>
-
-              {/* Social Media Icons */}
-              <div className="flex space-x-4 mt-6">
-                <a
-                  href="https://www.linkedin.com/in/kshitij-ratnawat/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Linkedin className="text-blue-400 hover:text-blue-500 transition" size={24} />
-                </a>
-                <a
-                  href="https://github.com/kshitijrat"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="text-blue-400 hover:text-blue-500 transition" size={24} />
-                </a>
-                <a
-                  href="https://www.instagram.com/kshitijratnawat_/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Instagram className="text-blue-400 hover:text-blue-500 transition" size={24} />
-                </a>
+                <p>Indore, Madhya Pradesh, India</p>
               </div>
             </div>
-          </motion.div>
 
-          <motion.form
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6"
-          >
-            <div>
-              <label className="block text-gray-400 mb-2">Name</label>
-              <input
-                type="text"
-                className="w-full bg-navy-800 text-white rounded-lg p-3 focus:ring-2 focus:ring-blue-400 outline-none"
-                placeholder="Your name"
-              />
+            {/* Social Media Icons */}
+            <div className="flex justify-center gap-6 mt-6">
+              <a
+                href="https://www.linkedin.com/in/kshitij-ratnawat/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="text-blue-400 hover:text-blue-500 transition-all duration-300" size={28} />
+              </a>
+              <a
+                href="https://github.com/kshitijrat"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="text-blue-400 hover:text-blue-500 transition-all duration-300" size={28} />
+              </a>
+              <a
+                href="https://www.instagram.com/kshitijratnawat_/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Instagram className="text-blue-400 hover:text-blue-500 transition-all duration-300" size={28} />
+              </a>
             </div>
-            <div>
-              <label className="block text-gray-400 mb-2">Email</label>
-              <input
-                type="email"
-                className="w-full bg-navy-800 text-white rounded-lg p-3 focus:ring-2 focus:ring-blue-400 outline-none"
-                placeholder="Your email"
-              />
+
+            {/* Coding Profiles */}
+            <div className="flex justify-center gap-6 mt-6">
+              <a
+                href="https://codeforces.com/profile/kshitijrat"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <Code className="text-blue-400" size={24} />
+                <span>Codeforces</span>
+              </a>
+              <a
+                href="https://www.geeksforgeeks.org/user/kshitijrhrii/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <Code className="text-blue-400" size={24} />
+                <span>GeeksforGeeks</span>
+              </a>
+              <a
+                href="https://leetcode.com/u/kshitijratnawat/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <Code className="text-blue-400" size={24} />
+                <span>LeetCode</span>
+              </a>
             </div>
-            <div>
-              <label className="block text-gray-400 mb-2">Message</label>
-              <textarea
-                className="w-full bg-navy-800 text-white rounded-lg p-3 focus:ring-2 focus:ring-blue-400 outline-none h-32"
-                placeholder="Your message"
-              ></textarea>
-            </div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-blue-500 text-white px-8 py-3 rounded-lg flex items-center gap-2 hover:bg-blue-600 transition-colors"
-            >
-              Send Message
-              <Send size={18} />
-            </motion.button>
-          </motion.form>
+          </div>
         </div>
+        
       </div>
+
+      
     </div>
+
+    <footer className="bg-gray-800 text-white py-6 text-center">
+        <p className="text-gray-400">© 2025 Kshitij Ratnawat. All rights reserved.</p>
+      </footer>
+
+    </>
+    
   );
 };
 

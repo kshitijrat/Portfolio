@@ -18,7 +18,7 @@ const CodePattern = () => (
     >
       <circle id="pattern-circle" cx="10" cy="10" r="1.6257413380501518" fill="#000"></circle>
     </pattern>
-    <rect id="rect" x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
+    <rect id="rect" x="0" y="0" width="100%" fill="url(#pattern-circles)"></rect>
   </svg>
 );
 

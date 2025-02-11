@@ -14,14 +14,7 @@ const Experience = () => {
         "Built RESTful APIs for seamless frontend-backend communication and implemented JWT security for secure authentication.",
       ],
     },
-    {
-      title: "IBM CSRBox Frontend Internship",
-      company: "Remote",
-      period: "(Add Dates)",
-      achievements: [
-        "Completed a 6-week IBM CSRBox Frontend Internship with practical web development experience.",
-      ],
-    },
+    
   ];
 
   return (

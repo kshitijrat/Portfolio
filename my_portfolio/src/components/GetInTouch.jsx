@@ -50,7 +50,7 @@ const GetInTouch = () => {
                 {/* Location */}
                 <div className="flex items-center gap-2 text-sm md:text-base">
                   <MapPin className="text-blue-400" size={24} />
-                  <p>Indore, Madhya Pradesh, India</p>
+                  <a href="https://maps.app.goo.gl/mC6RjYiNhHXesB9N6" className="hover:underline">Indore, Madhya Pradesh, India</a>
                 </div>
               </div>
 
@@ -85,7 +85,7 @@ const GetInTouch = () => {
                   href="https://codeforces.com/profile/kshitijrat"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm md:text-base"
+                  className="flex items-center gap-2 text-sm md:text-base hover:underline"
                 >
                   <Code className="text-blue-400" size={24} />
                   <span>Codeforces</span>
@@ -94,7 +94,7 @@ const GetInTouch = () => {
                   href="https://www.geeksforgeeks.org/user/kshitijrhrii/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm md:text-base"
+                  className="flex items-center gap-2 text-sm md:text-base hover:underline"
                 >
                   <Code className="text-blue-400" size={24} />
                   <span>GeeksforGeeks</span>
@@ -103,7 +103,7 @@ const GetInTouch = () => {
                   href="https://leetcode.com/u/kshitijratnawat/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm md:text-base"
+                  className="flex items-center gap-2 text-sm md:text-base hover:underline"
                 >
                   <Code className="text-blue-400" size={24} />
                   <span>LeetCode</span>

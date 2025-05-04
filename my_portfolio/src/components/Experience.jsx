@@ -1,7 +1,7 @@
-import React from 'react';
-import { Briefcase, Calendar, Award } from 'lucide-react';
-import { motion } from 'framer-motion';
-import AnimatedSectionHeader from './AnimatedSectionHeader'; // Assuming you have this component
+"use client"
+import { Briefcase, Calendar, Award } from "lucide-react"
+import { motion } from "framer-motion"
+import AnimatedSectionHeader from "./AnimatedSectionHeader" // Assuming you have this component
 
 const Experience = () => {
   const experiences = [
@@ -14,8 +14,7 @@ const Experience = () => {
         "Built RESTful APIs for seamless frontend-backend communication and implemented JWT security for secure authentication.",
       ],
     },
-    
-  ];
+  ]
 
   return (
     <section
@@ -62,7 +61,7 @@ const Experience = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Experience;
+export default Experience

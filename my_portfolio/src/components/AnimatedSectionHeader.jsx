@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+"use client"
+import { motion } from "framer-motion"
 
 export default function AnimatedSectionHeader({ title }) {
   return (
@@ -12,5 +12,5 @@ export default function AnimatedSectionHeader({ title }) {
     >
       <h2 className="text-4xl font-bold text-white">{title}</h2>
     </motion.div>
-  );
+  )
 }

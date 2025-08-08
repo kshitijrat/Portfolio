@@ -13,6 +13,8 @@
     "": "file:",
     "@hookform/resolvers": "^3.9.1",
     "chart.js": "^4.4.7",
+    "clsx": "^2.1.1",
+    "clx": "^1.0.0",
     "framer-motion": "^12.4.1",
     "lucide-react": "^0.468.0",
     "pathalogy": "file:",
@@ -24,6 +26,8 @@
     "react-router-dom": "^7.0.2",
     "react-simple-typewriter": "^5.0.1",
     "react-tsparticles": "^2.12.2",
+    "tailwind-merge": "^3.3.1",
+    "tailwind-scrollbar": "^4.0.2",
     "yup": "^1.6.1"
   },
   "devDependencies": {

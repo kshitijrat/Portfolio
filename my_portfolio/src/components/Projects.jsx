@@ -1,196 +1,197 @@
 "use client"
 
-import finance_tracker_pic from "../assets/finance_tracker_pic.png"
-import Human_Gait_Cycle_Analysis from "../assets/Human_gait_pic.png"
-import stay_manager_pic from "../assets/stay_manger_pic.png"
-import career_portal_pic from "../assets/career_portal_pic.png"
+import { ChevronDown, Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Send, ArrowRight } from 'lucide-react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
+import { Input } from "../components/ui/input"
+import { Textarea } from '../components/ui/textarea.jsx'
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, ChevronUp, BarChart, Home, DollarSign, Github, ExternalLink } from "lucide-react"
+import { motion } from 'framer-motion'
 
-// Replace local image imports with online image URLs
 const projectData = [
   {
     title: "Career & Skill Development Portal",
     description:
-      "A portal to help individuals enhance their career skills with resources, tests, and progress tracking. Developed during Smart India Hackathon 2024, with JWT authentication for security.",
+      "Portal to enhance career skills with resources, quizzes, and progress tracking. Built for Smart India Hackathon 2024 with secure JWT auth.",
     githubLink: "https://github.com/kshitijrat/careerportal",
-    icon: <BarChart className="text-blue-400 w-8 h-8" />,
-    imageUrl:
-      career_portal_pic,
+    imageUrl: "https://your-image-host.com/career_portal_pic.png",
     tags: ["React", "Spring Boot", "JWT", "MySQL"],
   },
   {
     title: "Human Gait Cycle Analysis",
     description:
-      "A project that uses regression techniques and polynomial fitting to analyze human gait. It tracks and studies human walking patterns for health assessments and diagnostics.",
-    githubLink: "https://github.com/kshitijrat/gait-cycle-analysis-using-polynomial-regression-main",
-    icon: <Home className="text-blue-400 w-8 h-8" />,
-    imageUrl:
-      Human_Gait_Cycle_Analysis,
-    tags: ["Python", "Regression", "Data Analysis", "Healthcare"],
+      "Analyzes human walking patterns using polynomial regression for healthcare diagnostics.",
+    githubLink:
+      "https://github.com/kshitijrat/gait-cycle-analysis-using-polynomial-regression-main",
+    imageUrl: "https://your-image-host.com/human_gait_pic.png",
+    tags: ["Python", "Regression", "Healthcare", "Data Analysis"],
   },
   {
     title: "Finance Tracker",
     description:
-      "A personal finance tool designed to help users manage their finances, track expenses, and plan budgets. Built during Kriyeta 3.0 Hackathon.",
+      "A personal finance tool to manage expenses and budgets. Built during Kriyeta 3.0 Hackathon.",
     githubLink: "https://github.com/kshitijrat/Finance-Tracker",
-    icon: <DollarSign className="text-blue-400 w-8 h-8" />,
-    imageUrl:
-      finance_tracker_pic,
+    imageUrl: "https://your-image-host.com/finance_tracker_pic.png",
     tags: ["React", "JavaScript", "CSS", "LocalStorage"],
   },
   {
     title: "Stay Manager",
     description:
-      "A project designed to help manage stays and accommodations efficiently, ensuring proper tracking and organization of stay details.",
+      "Spring Boot based accommodation and hostel management tool with MySQL and Thymeleaf.",
     githubLink: "https://github.com/kshitijrat/Hostel_Hub",
-    icon: <Home className="text-blue-400 w-8 h-8" />,
-    imageUrl:
-      stay_manager_pic,
+    imageUrl: "https://your-image-host.com/stay_manger_pic.png",
     tags: ["Java", "Spring Boot", "MySQL", "Thymeleaf"],
+  },
+  {
+    title: "DevScope",
+    description:
+      "A developer portfolio analyzer that visualizes GitHub stats with clean UI and dynamic comparisons.",
+    githubLink: "https://github.com/kshitijrat/devscope",
+    liveDemo: "https://devscope.vercel.app/",
+    imageUrl: "https://your-image-host.com/devscope.png",
+    tags: ["React", "Tailwind", "GitHub API", "Vite"],
+  },
+  {
+    title: "Disaster Alert System",
+    description:
+      "Real-time disaster alerts using location, earthquake APIs, weather data, and IoT sensor input. Built for Simhastha Tech Hackathon 2025.",
+    githubLink: "https://github.com/kshitijrat/disaster-alert-system",
+    liveDemo: "https://disaster-alert.live",
+    imageUrl: "https://your-image-host.com/disaster_alert.png",
+    tags: ["React", "Spring Boot", "MongoDB", "Map", "Socket.IO"],
   },
 ]
 
 const Projects = () => {
-  const [openIndex, setOpenIndex] = useState(null)
+  
+  const projects = [
+    {
+      title: "Hostel Hub",
+      description: "Full-stack hostel management system with role-based authentication and comprehensive operations management.",
+      technologies: ["Spring Boot", "Hibernate", "MySQL", "Thymeleaf", "Spring Security"],
+      github: "#",
+      live: null,
+      image: "/placeholder.svg?height=240&width=400&text=Hostel+Hub"
+    },
+    {
+      title: "DevScope",
+      description: "Modern GitHub profile explorer with interactive data visualization and side-by-side profile comparison.",
+      technologies: ["React.js", "Tailwind CSS", "GitHub API", "Chart.js"],
+      github: "#",
+      live: "#",
+      image: "/placeholder.svg?height=240&width=400&text=DevScope"
+    },
+    {
+      title: "Disaster Alert Detection",
+      description: "Real-time disaster monitoring application with dynamic mapping and multi-API integration.",
+      technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "Leaflet.js"],
+      github: "#",
+      live: "#",
+      image: "/placeholder.svg?height=240&width=400&text=Disaster+Alert"
+    }
+  ]
 
-  const toggleDropdown = (index) => {
-    setOpenIndex(openIndex === index ? null : index)
-  }
 
   return (
-    <section
-      id="projects"
-      className="py-20 bg-gradient-to-b from-gray-900 to-navy-900 text-white relative overflow-hidden"
-    >
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden opacity-5">
-        <div className="absolute top-0 left-0 w-full h-full">
-          {Array.from({ length: 20 }).map((_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full bg-blue-500"
-              style={{
-                width: Math.random() * 300 + 50,
-                height: Math.random() * 300 + 50,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                opacity: Math.random() * 0.5,
-                filter: "blur(50px)",
-              }}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-12"
+    <section id="projects" className="py-24">
+      <div className="container mx-auto px-6">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          className="max-w-6xl mx-auto"
         >
-          My Projects
-        </motion.h2>
+          <h2 className="text-4xl md:text-5xl font-light mb-16 text-center">Selected Work</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projectData.map((project, index) => (
-            <motion.div
-              key={index}
-              className="bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-700/30 hover:shadow-2xl transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleDropdown(index)}>
-                <div className="flex items-center gap-4">
-                  <motion.div whileHover={{ rotate: 15 }} transition={{ type: "spring", stiffness: 300 }}>
-                    {project.icon}
-                  </motion.div>
-                  <h3 className="text-2xl font-semibold">{project.title}</h3>
-                </div>
-                <motion.span
-                  className="text-blue-400 bg-blue-400/10 p-2 rounded-full"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  {openIndex === index ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
-                </motion.span>
-              </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <Card className="border border-gray-100 dark:border-gray-900 hover:border-cyan-500 dark:hover:border-cyan-400 transition-all duration-300 bg-white dark:bg-black">
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      width={400}
+                      height={240}
+                      className="w-full h-48 object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                    />
+                  </div>
 
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <motion.div
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.1 }}
-                    >
-                      <div className="mt-4 overflow-hidden rounded-lg relative group">
-                        <img
-                          src={project.imageUrl || "/placeholder.svg"}
-                          alt={project.title}
-                          className="w-full h-56 object-cover rounded-lg transition-transform duration-500 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                          <div className="p-4 w-full">
-                            <div className="flex flex-wrap gap-2 mb-2">
-                              {project.tags.map((tag, tagIndex) => (
-                                <span
-                                  key={tagIndex}
-                                  className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-medium"
-                                >
-                                  {tag}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                  <CardHeader className="pb-4">
+                    <CardTitle className="text-xl font-medium text-gray-900 dark:text-white">
+                      {project.title}
+                    </CardTitle>
+                    <CardDescription className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                      {project.description}
+                    </CardDescription>
+                  </CardHeader>
 
-                      <p className="text-lg mt-4 text-gray-300">{project.description}</p>
-
-                      <div className="mt-4 flex gap-4">
-                        <motion.a
-                          href={project.githubLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white transition-colors"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
+                  <CardContent className="pt-0">
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.technologies.slice(0, 3).map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-xs text-gray-500 dark:text-gray-500 border-b border-gray-200 dark:border-gray-800 pb-1"
                         >
-                          <Github className="w-4 h-4" />
-                          GitHub
-                        </motion.a>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
 
-                        <motion.a
-                          href={project.githubLink}
+                    <div className="flex space-x-4">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 flex items-center space-x-1"
+                      >
+                        <Github className="w-4 h-4" />
+                        <span>Code</span>
+                      </a>
+                      {project.live && (
+                        <a
+                          href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition-colors"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
+                          className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 flex items-center space-x-1"
                         >
                           <ExternalLink className="w-4 h-4" />
-                          Live Demo
-                        </motion.a>
-                      </div>
-                    </motion.div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </div>
+                          <span>Live</span>
+                        </a>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mt-16"
+          >
+            <a
+              href="https://github.com/kshitijratnawat"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+            >
+              <Github className="w-4 h-4" />
+              <span>View more on GitHub</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )

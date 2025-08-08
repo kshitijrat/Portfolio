@@ -1,163 +1,86 @@
 "use client"
+
 import { GraduationCap, Calendar, Award } from "lucide-react"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
 import { motion } from "framer-motion"
-import AnimatedSectionHeader from "./AnimatedSectionHeader"
+
+const educationData = [
+  {
+    degree: "Master of Computer Applications (MCA)",
+    institution: "Maulana Azad National Institute of Technology, Bhopal",
+    period: "Aug 2023 - May 2026",
+    achievements: ["CGPA: 7.650"],
+  },
+  {
+    degree: "Bachelor of Computer Applications (BCA)",
+    institution: "Rajiv Gandhi Govt. PG College, Mandsaur",
+    period: "July 2020 - April 2023",
+    achievements: ["CGPA: 7.02"],
+  },
+  {
+    degree: "Higher Secondary School (XIIth)",
+    institution: "Alpha Senior Secondary School, Shamgarh",
+    period: "July 2019 - May 2020",
+    achievements: ["Percentage: 81.6%"],
+  },
+]
 
 export default function Education() {
-  const education = [
-    {
-      degree: "Master of Computer Applications (MCA)",
-      institution: "Maulana Azad National Institute of Technology, Bhopal",
-      period: "Aug 2023 - May 2026",
-      achievements: ["CGPA: 7.650"],
-    },
-    {
-      degree: "Bachelor of Computer Applications (BCA)",
-      institution: "Rajiv Gandhi Govt. PG College, Mandsaur",
-      period: "July 2020 - April 2023",
-      achievements: ["CGPA: 7.02"],
-    },
-    {
-      degree: "Higher Secondary School (XIIth)",
-      institution: "Alpha Senior Secondary School, Shamgarh",
-      period: "July 2019 - May 2020",
-      achievements: ["Percentage: 81.6"],
-    },
-  ]
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-  }
-
   return (
-    <section
-      id="education"
-      className="py-20 bg-gradient-to-b from-navy-950 to-purple-950 transition-colors text-white duration-300 overflow-hidden relative"
-    >
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -left-20 top-1/4 w-80 h-80 bg-purple-500/10 rounded-full filter blur-3xl"></div>
-        <div className="absolute -right-20 bottom-1/4 w-80 h-80 bg-blue-500/10 rounded-full filter blur-3xl"></div>
+    <section id="education" className="py-24 bg-gradient-to-b">
 
-        {/* Animated particles */}
-        {Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute bg-white rounded-full w-1 h-1"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, Math.random() * 100 - 50],
-              opacity: [0.2, 0.5, 0.2],
-              scale: [1, 1.5, 1],
-            }}
-            transition={{
-              duration: Math.random() * 5 + 5,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        <AnimatedSectionHeader title="Education" />
-
+      <div className="container mx-auto px-6">
         <motion.div
-          className="max-w-3xl mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto"
         >
-          {education.map((edu, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0 0 25px rgba(79, 70, 229, 0.2)",
-              }}
-              className="bg-navy-800/80 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-gray-700/30 transition-all duration-300 hover:bg-navy-700 hover:shadow-xl relative overflow-hidden mt-8"
-            >
-              {/* Decorative elements */}
-              <div className="absolute top-0 left-0 w-32 h-32 bg-purple-500/20 rounded-br-full z-0"></div>
-              <div className="absolute bottom-0 right-0 w-24 h-24 bg-blue-500/20 rounded-tl-full z-0"></div>
+          <h2 className="text-4xl md:text-5xl font-light mb-16 text-center">Education</h2>
 
-              <div className="relative z-10">
-                <motion.h3
-                  className="text-2xl font-semibold mb-2 text-white flex items-center"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <GraduationCap className="w-6 h-6 mr-2 text-blue-400" />
-                  {edu.degree}
-                </motion.h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {educationData.map((edu, index) => (
+              <motion.div
+                key={edu.degree}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <Card className="border border-gray-100 dark:border-gray-900 hover:border-cyan-500 dark:hover:border-cyan-400 transition-all duration-300 bg-white dark:bg-black h-full flex flex-col justify-between">
+                  <CardHeader>
+                    <CardTitle className="text-xl font-medium text-gray-900 dark:text-white flex items-center space-x-2">
+                      <GraduationCap className="w-5 h-5 text-blue-500" />
+                      <span>{edu.degree}</span>
+                    </CardTitle>
+                    <CardDescription className="text-gray-600 dark:text-gray-400">
+                      {edu.institution}
+                    </CardDescription>
+                  </CardHeader>
 
-                <motion.p
-                  className="text-xl text-gray-300 mb-4"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                >
-                  {edu.institution}
-                </motion.p>
+                  <CardContent className="pt-2">
+                    <p className="text-sm text-gray-500 dark:text-gray-400 flex items-center mb-2">
+                      <Calendar className="w-4 h-4 mr-2 text-blue-400" />
+                      {edu.period}
+                    </p>
 
-                <motion.p
-                  className="text-gray-400 mb-4 flex items-center"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  <Calendar className="w-4 h-4 mr-2 text-blue-400" />
-                  {edu.period}
-                </motion.p>
-
-                <motion.h4
-                  className="text-lg font-medium mb-2 text-gray-200 flex items-center"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                >
-                  <Award className="w-5 h-5 mr-2 text-blue-400" />
-                  Key Achievements:
-                </motion.h4>
-
-                <motion.ul
-                  className="list-disc list-inside space-y-2"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                >
-                  {edu.achievements.map((achievement, idx) => (
-                    <li key={idx} className="text-gray-300">
-                      {achievement}
-                    </li>
-                  ))}
-                </motion.ul>
-              </div>
-            </motion.div>
-          ))}
+                    <div className="mt-4">
+                      <p className="text-sm font-semibold flex items-center text-gray-700 dark:text-gray-300 mb-1">
+                        <Award className="w-4 h-4 mr-2 text-blue-400" />
+                        Key Achievement:
+                      </p>
+                      <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-400">
+                        {edu.achievements.map((ach, idx) => (
+                          <li key={idx}>{ach}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

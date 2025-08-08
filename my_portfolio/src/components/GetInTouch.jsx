@@ -1,5 +1,7 @@
 "use client"
+import React, { useState } from "react"
 import { motion } from "framer-motion"
+import axios from 'axios' // install this via `npm i axios`
 import { ChevronDown, Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Send, ArrowRight } from 'lucide-react'
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
@@ -8,21 +10,36 @@ import { Textarea } from '../components/ui/textarea.jsx'
 
 
 const GetInTouch = () => {
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
+
+  // Inside your component
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    subject: '',
+    message: ''
+  })
+
+
+  const [status, setStatus] = useState({ success: null, message: '' })
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const res = await axios.post('http://localhost:5000/api/contact', formData)
+      console.log('Server response:', res.data)  // response ka data console me dikhayega
+      setStatus({ success: true, message: res.data.message || 'Message sent successfully!' })
+      setFormData({ firstName: '', lastName: '', email: '', subject: '', message: '' })
+    } catch (err) {
+      console.error('Error sending message:', err.response?.data || err.message)
+      alert(err.response?.data?.message || 'Failed to send message.')
+    }
   }
+
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
@@ -107,16 +124,22 @@ const GetInTouch = () => {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <Input
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
                         placeholder="First Name"
                         className="border-gray-200 dark:border-gray-800 focus:border-cyan-500 dark:focus:border-cyan-400 bg-white dark:bg-black"
                       />
                     </div>
                     <div>
                       <Input
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
                         placeholder="Last Name"
                         className="border-gray-200 dark:border-gray-800 focus:border-cyan-500 dark:focus:border-cyan-400 bg-white dark:bg-black"
                       />
@@ -125,16 +148,25 @@ const GetInTouch = () => {
 
                   <Input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="Email"
                     className="border-gray-200 dark:border-gray-800 focus:border-cyan-500 dark:focus:border-cyan-400 bg-white dark:bg-black"
                   />
 
                   <Input
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
                     placeholder="Subject"
                     className="border-gray-200 dark:border-gray-800 focus:border-cyan-500 dark:focus:border-cyan-400 bg-white dark:bg-black"
                   />
 
                   <Textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     rows={4}
                     placeholder="Message"
                     className="border-gray-200 dark:border-gray-800 focus:border-cyan-500 dark:focus:border-cyan-400 bg-white dark:bg-black resize-none"
@@ -149,7 +181,15 @@ const GetInTouch = () => {
                     <Send className="w-4 h-4" />
                     <span>Send Message</span>
                   </motion.button>
+
+                  {status.message && (
+                    <p className={status.success ? 'text-green-600' : 'text-red-600'}>
+                      {status.message}
+                    </p>
+                  )}
                 </form>
+
+
               </motion.div>
             </div>
           </motion.div>

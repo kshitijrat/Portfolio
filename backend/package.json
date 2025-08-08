@@ -1,4 +1,14 @@
 {
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend for Portfolio contact form",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Kshitij Ratnawat",
+  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",

@@ -10,7 +10,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'projects', 'contact']
+      const sections = ['hero', 'about', 'projects', 'achievements', 'contact']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -51,7 +51,7 @@ const Navbar = () => {
                 KR
               </motion.div>
               <div className="overflow-x-auto ml-5 py-1 scrollbar-hide whitespace-nowrap flex items-center gap-6 md:gap-8">
-                {['hero', 'about', 'projects', 'contact'].map((section) => (
+                {['hero', 'about', 'projects','achievements', 'education', 'contact'].map((section) => (
                   <button
                     key={section}
                     onClick={() => scrollToSection(section)}

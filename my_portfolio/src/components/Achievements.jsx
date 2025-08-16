@@ -11,24 +11,40 @@ const achievementsData = [
     details: ["Among top performers in National MCA Entrance Test 2023."]
   },
   {
-    title: "Coding Challenges",
-    subtitle: "400+ Problems Solved",
-    details: ["LeetCode, GFG & Codeforces (2023–2025)."]
-  },
-  {
     title: "Hackathons",
     subtitle: "Kriyeta 3.0 & SIH 2024",
     details: [
       "Solved real-world problem in Kriyeta 3.0 National Hackathon.",
-      "Advanced in Smart India Hackathon (internal round)."
+      "Advanced in Smart India Hackathon (internal round).",
+      <a
+        key="cert-hackathon"
+        href="https://drive.google.com/file/d/1xpoODsNrc5o66_npLc2OvxEQmXM9e5XA/view?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 underline"
+      >
+        View Certificates
+      </a>
     ]
   },
   {
     title: "Internship",
     subtitle: "IBM SkillBuild (2024)",
-    details: ["40-day internship gaining hands-on experience in industry-relevant technologies."]
+    details: [
+      "40-day internship gaining hands-on experience in industry-relevant technologies.",
+      <a
+        key="cert-internship"
+        href="https://drive.google.com/file/d/1qauyaEJlWGYiLu2mQtIjUHGXbZbhky4Q/view?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 underline"
+      >
+        View Certificate
+      </a>
+    ]
   }
 ]
+
 
 const softSkillsData = [
   {
@@ -66,7 +82,7 @@ export default function Achievements() {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-light mb-16 text-center">Achievements & Awards</h2>
+          <h2 className="text-4xl md:text-5xl font-light mb-16 text-center">Achievements</h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {achievementsData.map((ach, index) => (

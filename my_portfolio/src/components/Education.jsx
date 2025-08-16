@@ -66,10 +66,10 @@ export default function Education() {
                     </p>
 
                     <div className="mt-4">
-                      <p className="text-sm font-semibold flex items-center text-gray-700 dark:text-gray-300 mb-1">
+                      {/* <p className="text-sm font-semibold flex items-center text-gray-700 dark:text-gray-300 mb-1">
                         <Award className="w-4 h-4 mr-2 text-blue-400" />
-                        Key Achievement:
-                      </p>
+                        Marks
+                      </p> */}
                       <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-400">
                         {edu.achievements.map((ach, idx) => (
                           <li key={idx}>{ach}</li>

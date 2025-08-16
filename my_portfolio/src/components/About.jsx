@@ -53,7 +53,7 @@ const About = () => {
   "Version Control",
   "CI/CD",
   "Jenkins",
-  
+  "Microservices",  
 ]
 
 
@@ -131,7 +131,7 @@ const About = () => {
               <div className="flex items-center space-x-8 pt-8 text-sm text-gray-500 dark:text-gray-500">
                 <div className="flex items-center space-x-2">
                   <MapPin className="w-4 h-4" />
-                  <span>Indore, M.P.</span>
+                  <span>Bhopal, M.P.</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>

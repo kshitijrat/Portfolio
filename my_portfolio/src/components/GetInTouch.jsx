@@ -134,6 +134,7 @@ const GetInTouch = () => {
                       <Input
                         name="firstName"
                         value={formData.firstName}
+                        required
                         onChange={handleChange}
                         placeholder="First Name"
                         className="border-gray-200 dark:border-gray-800 focus:border-cyan-500 dark:focus:border-cyan-400 bg-white dark:bg-black"
@@ -142,6 +143,7 @@ const GetInTouch = () => {
                     <div>
                       <Input
                         name="lastName"
+                        required
                         value={formData.lastName}
                         onChange={handleChange}
                         placeholder="Last Name"
@@ -153,6 +155,7 @@ const GetInTouch = () => {
                   <Input
                     type="email"
                     name="email"
+                    required
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Email"
@@ -163,6 +166,7 @@ const GetInTouch = () => {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
+                    required
                     placeholder="Subject"
                     className="border-gray-200 dark:border-gray-800 focus:border-cyan-500 dark:focus:border-cyan-400 bg-white dark:bg-black"
                   />

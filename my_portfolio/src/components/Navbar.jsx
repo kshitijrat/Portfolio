@@ -51,7 +51,7 @@ const Navbar = () => {
                 KR
               </motion.div>
               <div className="overflow-x-auto ml-5 py-1 scrollbar-hide whitespace-nowrap flex items-center gap-6 md:gap-8">
-                {['hero', 'about', 'projects', 'contact', 'kshitij'].map((section) => (
+                {['hero', 'about', 'projects', 'contact'].map((section) => (
                   <button
                     key={section}
                     onClick={() => scrollToSection(section)}

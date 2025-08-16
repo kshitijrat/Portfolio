@@ -11,6 +11,7 @@ import { Textarea } from '../components/ui/textarea.jsx'
 
 const GetInTouch = () => {
 
+
   // Inside your component
   const [formData, setFormData] = useState({
     firstName: '',
@@ -20,7 +21,7 @@ const GetInTouch = () => {
     message: ''
   })
 
-
+  const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState({ success: null, message: '' })
 
   const handleChange = (e) => {
@@ -29,6 +30,7 @@ const GetInTouch = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(false);
     try {
       const res = await axios.post('http://localhost:5000/api/contact', formData)
       console.log('Server response:', res.data)  // response ka data console me dikhayega
@@ -37,6 +39,8 @@ const GetInTouch = () => {
     } catch (err) {
       console.error('Error sending message:', err.response?.data || err.message)
       alert(err.response?.data?.message || 'Failed to send message.')
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -174,13 +178,40 @@ const GetInTouch = () => {
 
                   <motion.button
                     type="submit"
+                    disabled={loading}
                     className="w-full py-3 border border-gray-200 dark:border-gray-800 hover:border-cyan-500 dark:hover:border-cyan-400 text-gray-900 dark:text-white transition-colors duration-200 flex items-center justify-center space-x-2"
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
+                    whileHover={{ scale: loading ? 1 : 1.01 }}
+                    whileTap={{ scale: loading ? 1 : 0.99 }}
                   >
-                    <Send className="w-4 h-4" />
-                    <span>Send Message</span>
+                    {loading ? (
+                      <svg
+                        className="animate-spin h-5 w-5 text-cyan-500"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8v8z"
+                        ></path>
+                      </svg>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        <span>Send Message</span>
+                      </>
+                    )}
                   </motion.button>
+
 
                   {status.message && (
                     <p className={status.success ? 'text-green-600' : 'text-red-600'}>

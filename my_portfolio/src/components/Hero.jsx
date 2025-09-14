@@ -65,7 +65,7 @@ export default function Hero() {
               <a href="https://github.com/kshitijrat" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300">
                 <Github className="w-7 h-7" />
               </a>
-              <a href="/Kshitij_Resume.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-500 transition-colors duration-300">
+              <a href="https://drive.google.com/file/d/1IlCLxfdkVYM7V7iJgkIEuKOChGqfdv95/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-500 transition-colors duration-300">
                 View Resume
               </a>
             </motion.div>

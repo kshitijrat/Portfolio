@@ -1,6 +1,6 @@
 "use client"
 
-import { Trophy, Users, Star } from "lucide-react"
+import { Trophy, Users, Star, Link } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
 import { motion } from "framer-motion"
 
@@ -8,7 +8,7 @@ const achievementsData = [
   {
     title: "NIMCET 2023",
     subtitle: "All India Rank 370",
-    details: ["Among top performers in National MCA Entrance Test 2023."]
+    details: ["Among top performers in National MCA Entrance Test 2023.", ""]
   },
   {
     title: "Hackathons",
@@ -16,32 +16,18 @@ const achievementsData = [
     details: [
       "Solved real-world problem in Kriyeta 3.0 National Hackathon.",
       "Advanced in Smart India Hackathon (internal round).",
-      <a
-        key="cert-hackathon"
-        href="https://drive.google.com/file/d/1xpoODsNrc5o66_npLc2OvxEQmXM9e5XA/view?usp=sharing"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-500 underline"
-      >
-        View Certificates
-      </a>
-    ]
+
+    ],
+    certificateLink: "https://drive.google.com/file/d/1xpoODsNrc5o66_npLc2OvxEQmXM9e5XA/view?usp=sharing",
   },
   {
     title: "Internship",
     subtitle: "IBM SkillBuild (2024)",
     details: [
       "40-day internship gaining hands-on experience in industry-relevant technologies.",
-      <a
-        key="cert-internship"
-        href="https://drive.google.com/file/d/1qauyaEJlWGYiLu2mQtIjUHGXbZbhky4Q/view?usp=sharing"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-500 underline"
-      >
-        View Certificate
-      </a>
-    ]
+
+    ],
+    certificateLink: "https://drive.google.com/file/d/1qauyaEJlWGYiLu2mQtIjUHGXbZbhky4Q/view?usp=sharing",
   }
 ]
 
@@ -73,7 +59,7 @@ export default function Achievements() {
   return (
     <section id="achievements" className="py-24 bg-gradient-to-b">
       <div className="container mx-auto px-6">
-        
+
         {/* Achievements & Awards */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -110,10 +96,29 @@ export default function Achievements() {
                         <li key={idx}>{d}</li>
                       ))}
                     </ul>
+
+                    {/* certificate button  */}
+                    {ach.certificateLink && (
+                      <div className="text-right">
+                        <a
+                          href={ach.certificateLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 mt-2 text-sm border border-gray-200 dark:border-gray-800 hover:border-cyan-500 dark:hover:border-cyan-400 text-gray-900 dark:text-white rounded-lg transition-all duration-300"
+                        >
+                          <Link className="w-4 h-4" />
+                          Certificate
+                        </a>
+                      </div>
+                    )}
+
                   </CardContent>
+
                 </Card>
+
               </motion.div>
             ))}
+
           </div>
         </motion.div>
 
@@ -158,6 +163,9 @@ export default function Achievements() {
               </motion.div>
             ))}
           </div>
+
+
+
         </motion.div>
       </div>
     </section>

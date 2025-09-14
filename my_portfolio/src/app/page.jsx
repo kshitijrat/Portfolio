@@ -14,6 +14,7 @@ import GetInTouch from '../components/GetInTouch.jsx'
 import Hero from '../components/Hero.jsx'
 import Education from '../components/Education.jsx'
 import Achievements from '../components/Achievements.jsx'
+import Experience from '../components/Experience.jsx'
 
 export default function Portfolio() {
 
@@ -29,6 +30,9 @@ export default function Portfolio() {
 
         {/* About Section */}
         <About />
+
+        {/* Experience Section  */}
+        <Experience />
 
         {/* Projects Section */}
         <Projects />

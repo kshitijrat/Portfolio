@@ -30,7 +30,8 @@ const GetInTouch = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setLoading(false);
+    setLoading(true);
+    setStatus({ success: null, message: '' })
     try {
       const res = await axios.post('https://portfolio-am2q.onrender.com/api/contact', formData)
       console.log('Server response:', res.data)  // response ka data console me dikhayega
@@ -183,31 +184,37 @@ const GetInTouch = () => {
                   <motion.button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3 border border-gray-200 dark:border-gray-800 hover:border-cyan-500 dark:hover:border-cyan-400 text-gray-900 dark:text-white transition-colors duration-200 flex items-center justify-center space-x-2"
+                    className="w-full py-3 border border-gray-200 dark:border-gray-800 
+             hover:border-cyan-500 dark:hover:border-cyan-400 
+             text-gray-900 dark:text-white transition-colors duration-200 
+             flex items-center justify-center space-x-2"
                     whileHover={{ scale: loading ? 1 : 1.01 }}
                     whileTap={{ scale: loading ? 1 : 0.99 }}
                   >
                     {loading ? (
-                      <svg
-                        className="animate-spin h-5 w-5 text-cyan-500"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        ></circle>
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8v8z"
-                        ></path>
-                      </svg>
+                      <>
+                        <svg
+                          className="animate-spin h-5 w-5 text-cyan-500"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8v8z"
+                          ></path>
+                        </svg>
+                        <span className="ml-2">Sending...</span>  {/* 👈 Yahan 'Sending...' */}
+                      </>
                     ) : (
                       <>
                         <Send className="w-4 h-4" />
@@ -217,11 +224,16 @@ const GetInTouch = () => {
                   </motion.button>
 
 
+
                   {status.message && (
-                    <p className={status.success ? 'text-green-600' : 'text-red-600'}>
+                    <p
+                      className={`mt-2 text-center ${status.success ? 'text-green-600' : 'text-red-600'
+                        }`}
+                    >
                       {status.message}
                     </p>
                   )}
+
                 </form>
 
 

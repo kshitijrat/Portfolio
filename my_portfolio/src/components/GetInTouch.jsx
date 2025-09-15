@@ -32,7 +32,7 @@ const GetInTouch = () => {
     e.preventDefault()
     setLoading(false);
     try {
-      const res = await axios.post('http://localhost:5000/api/contact', formData)
+      const res = await axios.post('https://portfolio-am2q.onrender.com/api/contact', formData)
       console.log('Server response:', res.data)  // response ka data console me dikhayega
       setStatus({ success: true, message: res.data.message || 'Message sent successfully!' })
       setFormData({ firstName: '', lastName: '', email: '', subject: '', message: '' })

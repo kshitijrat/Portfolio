@@ -16,7 +16,7 @@ async function testMail() {
     from: `"Test" <${process.env.SMTP_USER}>`,
     to: process.env.SMTP_USER,
     subject: "Test Mail",
-    text: "This is a test mail from Node.js",
+    text: "This is a test mail",
   });
 
   console.log("Message sent: %s", info.messageId);

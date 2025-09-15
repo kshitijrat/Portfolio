@@ -34,7 +34,7 @@ router.post('/contact', async (req, res) => {
     };
 
     await transporter.sendMail(adminMailOptions);
-    console.log("✅ Email received successfully");
+    console.log("Email received successfully");
 
     // 2. Confirmation Mail to User
     const userMailOptions = {
@@ -52,12 +52,12 @@ router.post('/contact', async (req, res) => {
     };
 
     await transporter.sendMail(userMailOptions);
-    console.log("✅ Confirmation email sent to user");
+    console.log("Confirmation email sent to user");
 
     res.status(200).json({ success: true, message: 'Message sent successfully!' });
 
   } catch (error) {
-    console.error('❌ Error sending email:', error);
+    console.error('Error sending email:', error);
     res.status(500).json({ success: false, message: 'Failed to send message.' });
   }
 });

@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use('/api', contactRoutes); // localhost:5000/api/contact
+app.use('/api', contactRoutes); https://portfolio-am2q.onrender.com/api/contact
 
 app.listen(PORT, () => {
   console.log(`🚀 Server is running at http://localhost:${PORT}`);

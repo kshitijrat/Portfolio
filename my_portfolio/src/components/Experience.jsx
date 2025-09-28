@@ -6,8 +6,8 @@ const experiences = [
   {
     role: "Software Development Intern (Java Full Stack)",
     company: "Saakshi IT TechSolutions Pvt. Ltd.",
-    duration: "January 2025 – Jun 2025",
-    location: "Indore, M.P.",
+    duration: "Jan 2025 – Jun 2025",
+    location: "Kota, Rajasthan",
     description:
       "Worked on building and optimizing REST APIs using Spring Boot and Hibernate. Integrated JWT-based authentication and developed scalable microservices for internal tools.",
     skills: ["Java", "Spring Boot", "Hibernate", "JWT","React.js", "MySQL"],

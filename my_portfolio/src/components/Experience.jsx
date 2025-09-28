@@ -10,7 +10,7 @@ const experiences = [
     location: "Kota, Rajasthan",
     description:
       "Worked on building and optimizing REST APIs using Spring Boot and Hibernate. Integrated JWT-based authentication and developed scalable microservices for internal tools.",
-    skills: ["Java", "Spring Boot", "Hibernate", "JWT","React.js", "MySQL"],
+    skills: ["Java", "Spring Boot", "Hibernate", "JWT","React.js", "MongoDB"],
     certificateLink: "https://drive.google.com/file/d/1hoKcNrRswi_IjJ1CgO97-cvEyD4c6qzy/view?usp=sharing",
   },
   // {

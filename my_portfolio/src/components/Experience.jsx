@@ -5,8 +5,8 @@ import { Briefcase, Award, Calendar, MapPin, ArrowRight, Link } from "lucide-rea
 const experiences = [
   {
     role: "Software Development Intern (Java Full Stack)",
-    company: "TechSolutions Pvt. Ltd.",
-    duration: "June 2025 – Aug 2025",
+    company: "Saakshi IT TechSolutions Pvt. Ltd.",
+    duration: "January 2025 – Jun 2025",
     location: "Indore, M.P.",
     description:
       "Worked on building and optimizing REST APIs using Spring Boot and Hibernate. Integrated JWT-based authentication and developed scalable microservices for internal tools.",

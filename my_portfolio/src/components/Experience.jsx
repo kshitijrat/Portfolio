@@ -1,40 +1,38 @@
-"use client"
 import { motion } from "framer-motion"
 import { Briefcase, Award, Calendar, MapPin, ArrowRight, Link } from "lucide-react"
 
 const experiences = [
   {
-    role: "Software Development Intern (Java Full Stack)",
-    company: "Saakshi IT TechSolutions Pvt. Ltd.",
-    duration: "Jan 2025 – Jun 2025",
-    location: "Kota, Rajasthan",
-    description:
-      "Worked on building and optimizing REST APIs using Spring Boot and Hibernate. Integrated JWT-based authentication and developed scalable microservices for internal tools.",
-    skills: ["Java", "Spring Boot", "Hibernate", "JWT","React.js", "MongoDB"],
-    certificateLink: "https://drive.google.com/file/d/1hoKcNrRswi_IjJ1CgO97-cvEyD4c6qzy/view?usp=sharing",
+    role: "Software Development Engineer Intern",
+    company: "Intellect Design Arena",
+    duration: "January 2026 – June 2026",
+    location: "Chennai, Tamil Nadu",
+    description: [
+      "Developing Spring Boot microservices for Cash Management (CNR & VAM) module in a live PSU banking project.",
+      "Executing EOD/BOD reconciliation processes and resolving production issues through server log analysis, with fixes validated in SIT/UAT.",
+      "Optimized Oracle Database queries improving transaction processing speed by 40%+ through indexing and query tuning.",
+      "Participated in code reviews and collaborated with the Testing Team to maintain quality standards."
+    ],
+    skills: ["Java", "Spring Boot", "REST APIs", "Oracle SQL", "Microservices", "Git", "OpenShift", "Production Support"],
+    certificateLink: ""
   },
-  // {
-  //   role: "Hackathon Finalist - Simhastha Tech Hackathon 2025",
-  //   company: "Govt. of Madhya Pradesh",
-  //   duration: "March 2025",
-  //   location: "Ujjain, M.P.",
-  //   description:
-  //     "Developed a real-time Disaster Alert & Rescue Recommendation System. Integrated multiple APIs for earthquake and weather data, and used IoT sensors for live monitoring.",
-  //   skills: ["React.js", "Node.js", "MongoDB", "Leaflet.js", "Socket.IO"],
-  // },
-  // {
-  //   role: "Smart India Hackathon 2024",
-  //   company: "Govt. of India",
-  //   duration: "Aug 2024",
-  //   location: "Bhopal, M.P.",
-  //   description:
-  //     "Built a Career & Skill Development Portal to help users track their progress and improve employability skills with secure authentication and interactive quizzes.",
-  //   skills: ["React.js", "Spring Boot", "JWT", "MySQL"],
-  // },
+  {
+    role: "Web Development Intern",
+    company: "Saakshi IT Solution Pvt. Ltd.",
+    duration: "May 2025 – Oct 2025",
+    location: "Kota, India",
+    description: [
+      "Built a real-time Disaster Alert System using Spring Boot, Spring Security, and MongoDB with focus on performance and scalability.",
+      "Worked on backend web development using Java and related technologies.",
+      "Gained hands-on experience in REST API design and database management."
+    ],
+    skills: ["Java", "Spring Boot", "Spring Security", "MongoDB", "REST APIs", "JavaScript"],
+    certificateLink: ""
+  }
 ]
 
 const Experience = () => {
- return (
+  return (
     <section id="experience" className="py-24 scroll-mt-24">
       <div className="container mx-auto px-6">
         <motion.div
@@ -78,12 +76,14 @@ const Experience = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-                  {exp.description}
-                </p>
+                <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 leading-relaxed mb-4 space-y-1">
+                  {exp.description.map((point, i) => (
+                    <li key={i} className="text-sm">{point}</li>
+                  ))}
+                </ul>
 
                 {/* Skills */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {exp.skills.map((skill, i) => (
                     <span
                       key={i}

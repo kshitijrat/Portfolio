@@ -1,96 +1,61 @@
-"use client"
-
-import { ChevronDown, Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Send, ArrowRight } from 'lucide-react'
+import { Github, ExternalLink, ArrowRight } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
-import { Input } from "../components/ui/input"
-import { Textarea } from '../components/ui/textarea.jsx'
-import { useState } from "react"
 import { motion } from 'framer-motion'
+import orderProcessing from '../assets/order-processing.svg?url'
+import aiCodeAssistant from '../assets/ai-code-assistant.svg?url'
+import taskBoard from '../assets/task-board.svg?url'
+import devscope from '../assets/devscope.svg?url'
+import gaitAnalysis from '../assets/gait-analysis.svg?url'
 
-const projectData = [
+const projects = [
   {
-    title: "Career & Skill Development Portal",
+    title: "Distributed Order Processing System",
     description:
-      "Portal to enhance career skills with resources, quizzes, and progress tracking. Built for Smart India Hackathon 2024 with secure JWT auth.",
-    githubLink: "https://github.com/kshitijrat/careerportal",
-    imageUrl: "https://your-image-host.com/career_portal_pic.png",
-    tags: ["React", "Spring Boot", "JWT", "MySQL"],
+      "Production-grade microservices architecture with 4 independent services (Order, Payment, Inventory, Notification). Implements JWT auth, role-based access, Razorpay webhook-based async payment processing, and API Gateway with service discovery.",
+    technologies: ["Java", "Spring Boot", "Microservices", "JWT", "Razorpay", "MySQL"],
+    github: "https://github.com/kshitijrat/distributed-order-processing-microservices",
+    live: null,
+    img: orderProcessing
+  },
+  {
+    title: "AI-Powered Code Assistant",
+    description:
+      "Spring Boot REST API integrating Google Gemini LLM to answer programming and backend questions using prompt engineering. Features async response handling and token management.",
+    technologies: ["Java", "Spring Boot", "Gemini API", "REST API", "LLM"],
+    github: "https://github.com/kshitijrat/springboot-llm-api-assistant",
+    live: null,
+    img: aiCodeAssistant
+  },
+  {
+    title: "Distributed Task Board & Workspace Collaboration",
+    description:
+      "Full-stack Kanban platform using React.js and Spring Boot with JWT authentication. Integrated REST APIs with React Context API for state management and MongoDB Atlas for persistence.",
+    technologies: ["React.js", "Spring Boot", "MongoDB", "JWT", "REST API"],
+    github: "https://github.com/kshitijrat/trello-clone-collaborative-board",
+    live: null,
+    img: taskBoard
+  },
+  {
+    title: "DevScope — GitHub Profile Analytics",
+    description:
+      "Interactive analytics platform providing deep insights into GitHub user statistics with beautiful data visualization. Features real-time GitHub API integration and responsive Tailwind CSS design.",
+    technologies: ["React.js", "Tailwind CSS", "GitHub API", "Vite"],
+    github: "https://github.com/kshitijrat/Devscope",
+    live: "https://devscope.vercel.app/",
+    img: devscope
   },
   {
     title: "Human Gait Cycle Analysis",
     description:
-      "Analyzes human walking patterns using polynomial regression for healthcare diagnostics.",
-    githubLink:
-      "https://github.com/kshitijrat/gait-cycle-analysis-using-polynomial-regression-main",
-    imageUrl: "https://your-image-host.com/human_gait_pic.png",
-    tags: ["Python", "Regression", "Healthcare", "Data Analysis"],
-  },
-  {
-    title: "Finance Tracker",
-    description:
-      "A personal finance tool to manage expenses and budgets. Built during Kriyeta 3.0 Hackathon.",
-    githubLink: "https://github.com/kshitijrat/Finance-Tracker",
-    imageUrl: "https://your-image-host.com/finance_tracker_pic.png",
-    tags: ["React", "JavaScript", "CSS", "LocalStorage"],
-  },
-  {
-    title: "Stay Manager",
-    description:
-      "Spring Boot based accommodation and hostel management tool with MySQL and Thymeleaf.",
-    githubLink: "https://github.com/kshitijrat/Hostel_Hub",
-    imageUrl: "https://your-image-host.com/stay_manger_pic.png",
-    tags: ["Java", "Spring Boot", "MySQL", "Thymeleaf"],
-  },
-  {
-    title: "DevScope",
-    description:
-      "A developer portfolio analyzer that visualizes GitHub stats with clean UI and dynamic comparisons.",
-    githubLink: "https://github.com/kshitijrat/devscope",
-    liveDemo: "https://devscope.vercel.app/",
-    imageUrl: "https://your-image-host.com/devscope.png",
-    tags: ["React", "Tailwind", "GitHub API", "Vite"],
-  },
-  {
-    title: "Disaster Alert System",
-    description:
-      "Real-time disaster alerts using location, earthquake APIs, weather data, and IoT sensor input. Built for Simhastha Tech Hackathon 2025.",
-    githubLink: "https://github.com/kshitijrat/disaster-alert-system",
-    liveDemo: "https://disaster-alert.live",
-    imageUrl: "https://your-image-host.com/disaster_alert.png",
-    tags: ["React", "Spring Boot", "MongoDB", "Map", "Socket.IO"],
-  },
+      "Machine learning model analyzing human walking patterns using polynomial regression for healthcare diagnostics. Achieved 94% prediction accuracy evaluated using MSE and R² metrics.",
+    technologies: ["Python", "Scikit-learn", "NumPy", "Pandas", "Matplotlib"],
+    github: "https://github.com/kshitijrat/gait-cycle-analysis-using-polynomial-regression-main",
+    live: null,
+    img: gaitAnalysis
+  }
 ]
 
 const Projects = () => {
-  
-  const projects = [
-    {
-      title: "Hostel Hub",
-      description: "Full-stack hostel management system with role-based authentication and comprehensive operations management.",
-      technologies: ["Spring Boot", "Hibernate", "MySQL", "Thymeleaf", "Spring Security"],
-      github: "#",
-      live: null,
-      image: "/placeholder.svg?height=240&width=400&text=Hostel+Hub"
-    },
-    {
-      title: "DevScope",
-      description: "Modern GitHub profile explorer with interactive data visualization and side-by-side profile comparison.",
-      technologies: ["React.js", "Tailwind CSS", "GitHub API", "Chart.js"],
-      github: "#",
-      live: "#",
-      image: "/placeholder.svg?height=240&width=400&text=DevScope"
-    },
-    {
-      title: "Disaster Alert Detection",
-      description: "Real-time disaster monitoring application with dynamic mapping and multi-API integration.",
-      technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "Leaflet.js"],
-      github: "#",
-      live: "#",
-      image: "/placeholder.svg?height=240&width=400&text=Disaster+Alert"
-    }
-  ]
-
-
   return (
     <section id="projects" className="py-24">
       <div className="container mx-auto px-6">
@@ -113,15 +78,9 @@ const Projects = () => {
                 viewport={{ once: true }}
                 className="group"
               >
-                <Card className="border border-gray-100 dark:border-gray-900 hover:border-cyan-500 dark:hover:border-cyan-400 transition-all duration-300 bg-white dark:bg-black">
+                <Card className="border border-gray-100 dark:border-gray-900 hover:border-cyan-500 dark:hover:border-cyan-400 transition-all duration-300 bg-white dark:bg-black h-full flex flex-col">
                   <div className="relative overflow-hidden">
-                    <img
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      width={400}
-                      height={240}
-                      className="w-full h-48 object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
-                    />
+                    <img src={project.img} alt={project.title} className="w-full h-48 object-cover" />
                   </div>
 
                   <CardHeader className="pb-4">
@@ -133,7 +92,7 @@ const Projects = () => {
                     </CardDescription>
                   </CardHeader>
 
-                  <CardContent className="pt-0">
+                  <CardContent className="pt-0 mt-auto">
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.technologies.slice(0, 3).map((tech) => (
                         <span
@@ -181,7 +140,7 @@ const Projects = () => {
             className="text-center mt-16"
           >
             <a
-              href="https://github.com/kshitijratnawat"
+              href="https://github.com/kshitijrat"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"

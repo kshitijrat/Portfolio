@@ -11,7 +11,6 @@ import { Textarea } from '../components/ui/textarea.jsx'
 
 const GetInTouch = () => {
 
-
   // Inside your component
   const [formData, setFormData] = useState({
     firstName: '',

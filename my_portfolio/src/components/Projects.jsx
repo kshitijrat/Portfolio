@@ -3,11 +3,21 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../co
 import { motion } from 'framer-motion'
 import orderProcessing from '../assets/order-processing.svg?url'
 import aiCodeAssistant from '../assets/ai-code-assistant.svg?url'
+import leetrank from '../assets/leetrank.png'
 import taskBoard from '../assets/task-board.svg?url'
 import devscope from '../assets/devscope.svg?url'
 import gaitAnalysis from '../assets/gait-analysis.svg?url'
 
 const projects = [
+  {
+    title: "LeetRank Pro & Sync",
+    description:
+      "Published productivity Chrome extension automating LeetCode workflows with 1000+ users. Features a custom UI overlay for live contest analytics and real-time rating delta predictions, plus an automated GitHub sync pipeline (Manifest V3) that pushes accepted solutions categorized by difficulty using secure GitHub OAuth authentication.",
+    technologies: ["JavaScript", "Chrome Extension API", "Manifest V3", "GitHub OAuth"],
+    github: "https://github.com/kshitijrat",
+    live: "https://chromewebstore.google.com/detail/bacpmpojkggibcadipnkpifihlfcljbg",
+    img: leetrank
+},
   {
     title: "Distributed Order Processing System",
     description:

@@ -15,20 +15,20 @@ const experiences = [
     ],
     skills: ["Java", "Spring Boot", "REST APIs", "Oracle SQL", "Microservices", "Git", "OpenShift", "Production Support"],
     certificateLink: ""
-  },
-  {
-    role: "Web Development Intern",
-    company: "Saakshi IT Solution Pvt. Ltd.",
-    duration: "May 2025 – Oct 2025",
-    location: "Kota, India",
-    description: [
-      "Built a real-time Disaster Alert System using Spring Boot, Spring Security, and MongoDB with focus on performance and scalability.",
-      "Worked on backend web development using Java and related technologies.",
-      "Gained hands-on experience in REST API design and database management."
-    ],
-    skills: ["Java", "Spring Boot", "Spring Security", "MongoDB", "REST APIs", "JavaScript"],
-    certificateLink: ""
   }
+  // {
+  //   role: "Web Development Intern",
+  //   company: "Saakshi IT Solution Pvt. Ltd.",
+  //   duration: "May 2025 – Oct 2025",
+  //   location: "Kota, India",
+  //   description: [
+  //     "Built a real-time Disaster Alert System using Spring Boot, Spring Security, and MongoDB with focus on performance and scalability.",
+  //     "Worked on backend web development using Java and related technologies.",
+  //     "Gained hands-on experience in REST API design and database management."
+  //   ],
+  //   skills: ["Java", "Spring Boot", "Spring Security", "MongoDB", "REST APIs", "JavaScript"],
+  //   certificateLink: ""
+  // }
 ]
 
 const Experience = () => {

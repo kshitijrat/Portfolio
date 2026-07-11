@@ -8,12 +8,14 @@ const experiences = [
     duration: "January 2026 – June 2026",
     location: "Chennai, Tamil Nadu",
     description: [
-      "Developing Spring Boot microservices for Cash Management (CNR & VAM) module in a live PSU banking project.",
-      "Executing EOD/BOD reconciliation processes and resolving production issues through server log analysis, with fixes validated in SIT/UAT.",
-      "Optimized Oracle Database queries improving transaction processing speed by 40%+ through indexing and query tuning.",
-      "Participated in code reviews and collaborated with the Testing Team to maintain quality standards."
+      "Developed Spring Boot microservices for the Cash Management in a live PSU banking project deployed at Indian Bank.",
+      "Built an auto-return feature for transactions stuck in the GL-to-GL process, reducing manual intervention.",
+      "Implemented direct file routing to GAMEFT, streamlining payment file processing.",
+      "Re-architected a legacy payment cloud service into a faster, more reliable module using optimized data structures.",
+      "Optimized Oracle Database queries, improving transaction processing speed by 40%+ through indexing and query tuning.",
+      "Wrote unit and integration tests (SIT/UAT) and participated in code reviews to ensure clean, production-ready code."
     ],
-    skills: ["Java", "Spring Boot", "REST APIs", "Oracle SQL", "Microservices", "Git", "OpenShift", "Production Support"],
+    skills: ["Java", "Spring Boot", "REST APIs", "Oracle SQL", "Microservices", "Git", "OpenShift", "System Design"],
     certificateLink: ""
   }
   // {

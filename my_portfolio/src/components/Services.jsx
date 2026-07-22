@@ -217,7 +217,7 @@ export default function ServicesPage() {
               Discuss Your Project
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/kshitij-ratnawat/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-gray-300 dark:border-gray-800 hover:border-cyan-500 text-gray-900 dark:text-white text-sm rounded-xl transition-all duration-300"

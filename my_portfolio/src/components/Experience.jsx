@@ -3,17 +3,14 @@ import { Briefcase, Award, Calendar, MapPin, ArrowRight, Link } from "lucide-rea
 
 const experiences = [
   {
-    role: "Software Development Engineer Intern",
-    company: "Intellect Design Arena",
+    role: "Software Engineer @Intellect Design Arena",
+    company: "Deployed client-side to Indian Bank for core banking/financial tech modules.",
     duration: "January 2026 – June 2026",
     location: "Chennai, Tamil Nadu",
     description: [
-      "Developed Spring Boot microservices for the Cash Management in a live PSU banking project deployed at Indian Bank.",
-      "Built an auto-return feature for transactions stuck in the GL-to-GL process, reducing manual intervention.",
-      "Implemented direct file routing to GAMEFT, streamlining payment file processing.",
-      "Re-architected a legacy payment cloud service into a faster, more reliable module using optimized data structures.",
-      "Optimized Oracle Database queries, improving transaction processing speed by 40%+ through indexing and query tuning.",
-      "Wrote unit and integration tests (SIT/UAT) and participated in code reviews to ensure clean, production-ready code."
+      "Engineered high-availability microservices using Java, Spring Boot, and Hibernate, ensuring sub-second response times for high-volume database transactions",
+      "Handled production-level bug fixes, DB connection pooling, and L0/L1 system support for critical banking operations.",
+      
     ],
     skills: ["Java", "Spring Boot", "REST APIs", "Oracle SQL", "Microservices", "Git", "OpenShift", "System Design"],
     certificateLink: ""
@@ -44,7 +41,7 @@ const Experience = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-light mb-16 text-center">Experience</h2>
+          <h2 className="text-4xl md:text-5xl font-light mb-16 text-center">Professional Experience & Enterprise Work</h2>
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (

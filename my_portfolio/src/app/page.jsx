@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../co
 import { Input } from "../components/ui/input"
 import { Textarea } from '../components/ui/textarea.jsx'
 import About from '../components/About.jsx'
+import ServicesPage from '../components/Services.jsx'
 import Navbar from '../components/Navbar.jsx'
 import Projects from '../components/Projects.jsx'
 import GetInTouch from '../components/GetInTouch.jsx'
@@ -30,6 +31,9 @@ export default function Portfolio() {
 
         {/* About Section */}
         <About />
+        
+        {/* Service Section */}
+        <ServicesPage/>
 
         {/* Experience Section  */}
         <Experience />

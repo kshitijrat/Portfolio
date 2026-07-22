@@ -27,22 +27,28 @@ const GetInTouch = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setLoading(true);
-    setStatus({ success: null, message: '' })
-    try {
-      const res = await axios.post('https://portfolio-am2q.onrender.com/api/contact', formData)
-      console.log('Server response:', res.data)  // response ka data console me dikhayega
-      setStatus({ success: true, message: res.data.message || 'Message sent successfully!' })
-      setFormData({ firstName: '', lastName: '', email: '', subject: '', message: '' })
-    } catch (err) {
-      console.error('Error sending message:', err.response?.data || err.message)
-      alert(err.response?.data?.message || 'Failed to send message.')
-    } finally {
-      setLoading(false);
-    }
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  setStatus({ success: null, message: '' });
+
+  try {
+    const res = await axios.post('https://portfolio-am2q.onrender.com/api/contact', formData);
+    
+    setStatus({ success: true, message: res.data.message || 'Message sent successfully!' });
+    setFormData({ firstName: '', lastName: '', email: '', subject: '', message: '' });
+  } catch (err) {
+    console.error('Error sending message:', err.response?.data || err.message);
+    
+    // Alert ki jagah UI me error message dikhayega
+    setStatus({ 
+      success: false, 
+      message: err.response?.data?.message || 'Failed to send message. Please try again.' 
+    });
+  } finally {
+    setLoading(false);
   }
+};
 
 
   const scrollToSection = (sectionId) => {
